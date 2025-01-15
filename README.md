@@ -30,6 +30,7 @@ performance or violations.
 
 
 Features to be covered
+
 1.Grade Calculation Function
 - Create a PL/SQL function that calculates the grade for a student based on their exam
 performance. The function should take the ExamResults ID as input and compute the grade
