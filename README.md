@@ -2,28 +2,6 @@
 PL/SQL scripts to enhance a university exam system with automated grade calculation, warnings, audit trails, performance reports, and schedule management. Includes triggers, procedures, functions, cursors, transaction handling, and demonstrations of deadlock and blocker-waiting scenarios.
 
 
-Tables & Relationships
-
-Courses: (id, name, professor_id, credit_hours, prerequisite_course_id) Tracks course details, assigned professors,
-and the prerequisite course that must be completed before registering for this course.
-----------------------------------------------------------------------------------------------
-Professors: (id, name, department) Stores information about university professors.
-----------------------------------------------------------------------------------------------
-Students: (id, name, academic_status, total_credits) contains details of students and their academic status (e.g.,
-active, suspended).
-----------------------------------------------------------------------------------------------
-Register: (id, student_id, course_id) Tracks students who are registered for courses.
-----------------------------------------------------------------------------------------------
-Exams: (id, course_id, exam_date, exam_type) Logs exam schedules for courses (e.g., midterm, final).
-----------------------------------------------------------------------------------------------
-ExamResults: (id, registration_id, grade, status) Stores grade and pass/fail status for students after exams.
-----------------------------------------------------------------------------------------------
-AuditTrail: (id, table_name, operation, old_data, new_data, timestamp) Logs updates or deletions to keep track of
-changes in any table.
-----------------------------------------------------------------------------------------------
-Warnings: (id, student_id, warning_reason, warning_date) Stores warnings issued to students based on low
-performance or violations.
-----------------------------------------------------------------------------------------------
 
 
 
