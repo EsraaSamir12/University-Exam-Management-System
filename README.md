@@ -1,71 +1,65 @@
-# University-Exam-Management-System
-PL/SQL scripts to enhance a university exam system with automated grade calculation, warnings, audit trails, performance reports, and schedule management. Includes triggers, procedures, functions, cursors, transaction handling, and demonstrations of deadlock and blocker-waiting scenarios.
+#University Exam Management System
+PL/SQL Scripts for Enhanced Exam Management
+1. Introduction
+1.1 Project Overview
+The University Exam Management System enhances exam administration using PL/SQL scripts. The system includes automated processes for grade calculation, warnings, audit trails, performance reports, and exam schedule management. Additionally, it demonstrates transaction handling, deadlock scenarios, and blocker-waiting situations.
 
+2. Features
+2.1 Grade Calculation Function
+A PL/SQL function calculates a student's grade based on their exam score. It updates the ExamResults table and returns the computed grade based on predefined ranges (e.g., 90-100 = A, 80-89 = B).
 
+2.2 Automated Warning Issuance
+A PL/SQL procedure automatically issues warnings to students who have failed two or more courses. It checks the ExamResults table and logs warnings in the Warnings table.
 
+2.3 Audit Trail for Registration
+A BEFORE INSERT and BEFORE DELETE trigger on the Register table logs every registration and deregistration event into the AuditTrail table. Each log entry includes:
 
+Table name (Register)
+Operation type (INSERT/DELETE)
+Data changes
+Timestamp
+2.4 Course Performance Report
+A PL/SQL cursor generates a performance report for a course by retrieving data from the ExamResults and Register tables. The report includes:
 
+Student IDs
+Grades
+Pass/fail statistics
+2.5 Exam Schedule Management
+A PL/SQL block retrieves and displays the exam schedule for a specific course. It queries the Exams table to show the course name, exam date, and type (midterm or final). If no exams are scheduled, it displays an appropriate message.
 
+2.6 Multi-Exam Grade Update with Transactions
+A PL/SQL block updates grades for multiple exams within a single transaction. If any error occurs, all changes are rolled back to maintain data consistency.
 
-Features to be covered
+2.7 Student Suspension Based on Warnings
+A PL/SQL procedure suspends students who have received three or more warnings. It updates the Students table, setting their academic status to "Suspended", and logs these updates in the AuditTrail table.
 
-1.Grade Calculation Function
-- Create a PL/SQL function that calculates the grade for a student based on their exam
-performance. The function should take the ExamResults ID as input and compute the grade
-based on predefined ranges (e.g., 90-100 = A, 80-89 = B). The function updates the grade
-column in the ExamResults table and returns the grade as output.
--------------------------------------------------------------------------------------------
-2. Automated Warning Issuance
-- Develop a PL/SQL procedure to issue warnings automatically for students who have received a
-failing grade (status = 'Fail') in two or more courses. The procedure should check
-the ExamResults table and log warnings in the Warnings table with details.
-----------------------------------------------------------------------------------------------
-3. Audit Trail for Registration
-- Create a BEFORE INSERT and BEFORE DELETE trigger for the Register table. The trigger
-logs every registration or deregistration event into the AuditTrail table. Each log entry should
-include the table name (Register), operation type (INSERT/DELETE), and relevant data
-changes, along with a timestamp.
-----------------------------------------------------------------------------------------------
-4. Course Performance Report
-- Write a PL/SQL cursor that generates a performance report for a specific course. The cursor
-should retrieve information from the ExamResults and Register tables, including student IDs,
-grades, and overall pass/fail statistics for the course. The report should summarize the number
-of students who passed and failed the course.
-----------------------------------------------------------------------------------------------
-5. Exam Schedule Management
-- Create a PL/SQL block to retrieve and display the schedule of exams for a specific course. The
-block should query the Exams table and display the course name, exam date, and type (e.g.,
-midterm or final). If no exams are scheduled, the block should display an appropriate message.
-----------------------------------------------------------------------------------------------
-6. Multi-Exam Grade Update with Transactions
-- Develop a PL/SQL block that processes grade updates for multiple exams in a single
-transaction. The block should update the ExamResults table for a list of registration_ids with
-new grades. If any error occurs, the block should rollback all changes to ensure data
-consistency.
-----------------------------------------------------------------------------------------------
-7. Student Suspension Based on Warnings
-- Create a PL/SQL procedure to suspend students who have received three or more warnings. The
-procedure should query the Warnings table to identify affected students and update
-their academic_status in the Students table to "Suspended." Ensure the procedure logs these
-updates into the AuditTrail table.
-----------------------------------------------------------------------------------------------
-8. User Management and Privileges
-- Create a Manager User and grant them the role to create two users. Let User 1 create the
-Students and Courses tables. Let User 2 insert 5 rows of students and their respective registered
-courses data.
-----------------------------------------------------------------------------------------------
-9. Blocker-Waiting Situation
-- Demonstrate generating a blocker-waiting situation using two transactions by User 1 and User
-2. User 1 locks the students table while updating the academic status of a student, and User 2
-tries to simultaneously insert a new registration record for the same student in the Register table.
-----------------------------------------------------------------------------------------------
-10. Identifying Blocker and Waiting Sessions
-- Identify the sessions in the blocker-waiting situation created in Question 10 using SID and
-SERIAL# for both the blocker and waiting sessions. Display the details of these sessions and
-how they are resolved.
-----------------------------------------------------------------------------------------------
-11. Deadlock Demonstration
-- Demonstrate a deadlock scenario by having User 1 and User 2 perform simultaneous
-transactions. User 1 updates a record in the Courses table while trying to lock the Register table,
-and User 2 updates a record in the Register table while trying to lock the Courses table. and
-show how you handle the deadlock.
+2.8 User Management and Privileges
+Manager User: Creates two users.
+User 1: Creates the Students and Courses tables.
+User 2: Inserts five students and their registered courses.
+3. Transaction and Deadlock Demonstrations
+3.1 Blocker-Waiting Situation
+Demonstrates a scenario where:
+
+User 1 locks the Students table while updating a student's academic status.
+User 2 attempts to insert a new registration record for the same student in the Register table, causing a waiting situation.
+3.2 Identifying Blocker and Waiting Sessions
+A query retrieves SID and SERIAL# for both the blocker and waiting sessions, displaying details and resolution methods.
+
+3.3 Deadlock Demonstration
+Simulates a deadlock scenario where:
+
+User 1 updates a record in the Courses table while trying to lock the Register table.
+User 2 updates a record in the Register table while trying to lock the Courses table.
+The script identifies and resolves the deadlock.
+4. Installation and Setup
+4.1 Requirements
+Oracle Database
+PL/SQL Developer or SQL*Plus
+4.2 Execution Steps
+Create necessary tables and sequences.
+Execute the PL/SQL scripts in order.
+Verify the system using test cases.
+5. Resources
+SQL Scripts: Available in the repository.
+Documentation: Includes setup instructions and test cases.
