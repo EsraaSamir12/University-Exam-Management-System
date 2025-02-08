@@ -1,5 +1,5 @@
-#University Exam Management System
-PL/SQL Scripts for Enhanced Exam Management
+# University Exam Management System
+## PL/SQL Scripts for Enhanced Exam Management
 1. Introduction
 1.1 Project Overview
 The University Exam Management System enhances exam administration using PL/SQL scripts. The system includes automated processes for grade calculation, warnings, audit trails, performance reports, and exam schedule management. Additionally, it demonstrates transaction handling, deadlock scenarios, and blocker-waiting situations.
