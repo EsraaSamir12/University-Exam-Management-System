@@ -1,10 +1,10 @@
 # University Exam Management System
 ## PL/SQL Scripts for Enhanced Exam Management
-1. Introduction
+### 1. Introduction
 1.1 Project Overview
 The University Exam Management System enhances exam administration using PL/SQL scripts. The system includes automated processes for grade calculation, warnings, audit trails, performance reports, and exam schedule management. Additionally, it demonstrates transaction handling, deadlock scenarios, and blocker-waiting situations.
 
-2. Features
+### 2. Features
 2.1 Grade Calculation Function
 A PL/SQL function calculates a student's grade based on their exam score. It updates the ExamResults table and returns the computed grade based on predefined ranges (e.g., 90-100 = A, 80-89 = B).
 
@@ -37,7 +37,7 @@ A PL/SQL procedure suspends students who have received three or more warnings. I
 Manager User: Creates two users.
 User 1: Creates the Students and Courses tables.
 User 2: Inserts five students and their registered courses.
-3. Transaction and Deadlock Demonstrations
+### 3. Transaction and Deadlock Demonstrations
 3.1 Blocker-Waiting Situation
 Demonstrates a scenario where:
 
@@ -52,7 +52,7 @@ Simulates a deadlock scenario where:
 User 1 updates a record in the Courses table while trying to lock the Register table.
 User 2 updates a record in the Register table while trying to lock the Courses table.
 The script identifies and resolves the deadlock.
-4. Installation and Setup
+### 4. Installation and Setup
 4.1 Requirements
 Oracle Database
 PL/SQL Developer or SQL*Plus
