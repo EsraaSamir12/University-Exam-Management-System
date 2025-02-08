@@ -1,4 +1,4 @@
-University Exam Management System
+# University Exam Management System
 PL/SQL Scripts for Enhanced Exam Management
 1. Introduction
 1.1 Project Overview
